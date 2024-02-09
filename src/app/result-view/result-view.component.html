@@ -1,0 +1,21 @@
+<div id="resultContainer">
+  <div id="contentContainer">
+    <div id="topBar">
+      <div id="logoFlexContainer">
+        <div id="logoDiv">
+          <img src="assets/angular%20image.png">
+          <h3>Search and Result Page</h3>
+        </div>
+      </div>
+      <app-search id="topBarSearch"
+                  [cssClass]="'resultDisplay'"
+                  [searchValue]="query"
+                  [searchStatus]="resultStatus">
+      </app-search>
+    </div>
+    <div id="listContainer">
+      <app-list-view [dataList]="resultData"></app-list-view>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

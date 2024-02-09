@@ -1,0 +1,50 @@
+#header, .row {
+  display: flex;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid;
+
+}
+
+#header > * {
+  border-bottom: 2px solid;
+  font-size: 2em;
+}
+
+/*#header > *, .row > * {*/
+/*  flex-basis: 25%;*/
+/*}*/
+
+.description {
+  flex-basis: 33%;
+
+}
+
+.title {
+  flex-basis: 16%;
+}
+
+.image {
+  flex-basis: 16%;
+}
+
+.image > img {
+  max-width: 100%;
+}
+
+
+.link {
+  flex-basis: 35%;
+  word-break: break-word;
+}
+
+.row > .title {
+  font-size: 2em;
+}
+
+@media (max-width: 790px) {
+  #header > *, .row > .title {
+    font-size: 1em;
+  }
+}

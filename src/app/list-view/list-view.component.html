@@ -1,0 +1,14 @@
+<div id="header">
+  <div class="title">Title</div>
+  <div class="description">Description</div>
+  <div class="image">Image URL</div>
+  <div class="link">Link</div>
+</div>
+<div class="row" *ngFor="let data of dataList">
+  <div class="title">{{data.title}}</div>
+  <div class="description">{{data.description}}</div>
+  <div class="image">
+    <img [src]="data.imageURL">
+  </div>
+  <div class="link">{{data.link}}</div>
+</div>

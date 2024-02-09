@@ -1,0 +1,12 @@
+<table>
+  <th>Title</th>
+  <th>Description</th>
+  <th>Image URL</th>
+  <th>Link</th>
+  <tr *ngFor="let item of listItems">
+    <td>{{item.title}}</td>
+    <td>{{item.description}}</td>
+    <td>{{item.imageURL}}</td>
+    <td>{{item.link}}</td>
+  </tr>
+</table>
