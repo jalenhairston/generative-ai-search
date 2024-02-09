@@ -1,11 +1,12 @@
 import {Component, Input} from '@angular/core';
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-list-view',
   standalone: true,
   imports: [
-    NgForOf
+    NgForOf,
+    NgIf
   ],
   templateUrl: './list-view.component.html',
   styleUrl: './list-view.component.css'
@@ -13,4 +14,8 @@ import {NgForOf} from "@angular/common";
 export class ListViewComponent {
 
   @Input() dataList: any
+
+  isValidImageURL(url: string): boolean {
+    return url.length > 0
+  }
 }
