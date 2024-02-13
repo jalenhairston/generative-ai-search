@@ -4,11 +4,12 @@ import {ListViewComponent} from "../list-view/list-view.component";
 import {FooterComponent} from "../footer/footer.component";
 import {ActivatedRoute} from "@angular/router";
 import {QueryService} from "../services/query.service";
+import {TableViewComponent} from "../table-view/table-view.component";
 
 @Component({
   selector: 'app-result-view',
   standalone: true,
-  imports: [SearchComponent, ListViewComponent, FooterComponent],
+  imports: [SearchComponent, ListViewComponent, FooterComponent, TableViewComponent],
   providers: [QueryService],
   templateUrl: './result-view.component.html',
   styleUrl: './result-view.component.css'

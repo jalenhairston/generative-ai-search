@@ -1,0 +1,36 @@
+<mat-table class="lessons-table mat-elevation-z8" [dataSource]="dataSource">
+
+  <ng-container matColumnDef="title">
+    <mat-header-cell *matHeaderCellDef>Title</mat-header-cell>
+    <mat-cell *matCellDef="let result">{{result.title}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+    <mat-cell class="description-cell"
+              *matCellDef="let result">{{result.description}}</mat-cell>
+
+  </ng-container>
+
+  <ng-container matColumnDef="image">
+    <mat-header-cell *matHeaderCellDef>Image</mat-header-cell>
+    <mat-cell class="duration-cell"
+              *matCellDef="let result">
+      <img [src]="result.imageURL" />
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="link">
+    <mat-header-cell *matHeaderCellDef>Link</mat-header-cell>
+    <mat-cell class="duration-cell"
+              *matCellDef="let result">{{result.link}}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="columnDefinitions"></mat-header-row>
+
+  <mat-row *matRowDef="let row; columns: columnDefinitions"></mat-row>
+
+
+</mat-table>
+<mat-paginator [length]="25" [pageSize]="3"
+               [pageSizeOptions]="[3, 5, 10]"></mat-paginator>

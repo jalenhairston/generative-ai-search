@@ -6,12 +6,6 @@ import { Injectable } from '@angular/core';
 export class QueryService {
 
   getResult(query: string) {
-    for (let i = 0; i < 10000; i++) {
-      console.log(i)
-      if (i == 9000) {
-        // return []
-      }
-    }
     return [
       {
         title:'Title 1',
@@ -112,7 +106,7 @@ export class QueryService {
           ' bundled the text with their software. Today it\'s seen all around the web; on templates,' +
           ' websites, and stock designs. Use our generator to get your own, or read on for the' +
           ' authoritative history of lorem ipsum.',
-        imageURL: 'assets/angular%20image%20.png',
+        imageURL: 'assets/angular%20image%202.png',
         link: 'https://www.google.com/search?q=lorem+ipsum+generator&rlz=1C1p='
       },
       {
