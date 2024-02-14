@@ -1,4 +1,4 @@
-<mat-table class="lessons-table mat-elevation-z8" [dataSource]="dataSource">
+<mat-table id="resultTable" [dataSource]="dataSource">
 
   <ng-container matColumnDef="title">
     <mat-header-cell *matHeaderCellDef>Title</mat-header-cell>
@@ -16,14 +16,20 @@
     <mat-header-cell *matHeaderCellDef>Image</mat-header-cell>
     <mat-cell class="duration-cell"
               *matCellDef="let result">
-      <img [src]="result.imageURL" />
+      <div class="imageContainer">
+        <img *ngIf="isValidImageURL(result.imageURL)" [src]="result.imageURL" />
+      </div>
     </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="link">
     <mat-header-cell *matHeaderCellDef>Link</mat-header-cell>
     <mat-cell class="duration-cell"
-              *matCellDef="let result">{{result.link}}</mat-cell>
+              *matCellDef="let result">
+      <div class="linkContainer">
+        {{result.link}}
+      </div>
+    </mat-cell>
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="columnDefinitions"></mat-header-row>

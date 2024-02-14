@@ -3,11 +3,12 @@ import { MatTableModule } from "@angular/material/table";
 import {QueryService} from "../services/query.service";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatTableDataSource} from "@angular/material/table";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-table-view',
   standalone: true,
-  imports: [MatTableModule, MatPaginator],
+  imports: [MatTableModule, MatPaginator, NgIf],
   templateUrl: './table-view.component.html',
   styleUrl: './table-view.component.css',
   providers: [QueryService]
@@ -29,5 +30,9 @@ export class TableViewComponent {
   ngAfterViewInit() {
     // @ts-ignore
     this.dataSource.paginator = this.paginator
+  }
+
+  isValidImageURL(url: string): boolean {
+    return url.length > 0
   }
 }

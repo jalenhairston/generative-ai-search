@@ -1,0 +1,57 @@
+.imageContainer {
+  width: 100%;
+  overflow: hidden;
+}
+
+.imageContainer img {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  display: block;
+}
+
+.linkContainer {
+  width: 100%;
+}
+
+.mat-mdc-cell {
+  padding: 20px 0 20px 0;
+}
+
+.mat-column-title {
+  flex: 0.7;
+  padding-left: 24px;
+  /*flex: 0 0 20%;*/
+}
+
+.mat-column-description {
+  flex: 1.7;
+}
+
+.mat-column-image {
+  flex: 0.9;
+}
+
+@media (max-width: 700px) {
+  .mat-mdc-cell {
+    font-size: 10px;
+  }
+
+  .imageContainer img {
+    width: 60px;
+    height: 60px;
+  }
+
+}
+
+@media (max-width: 400px) {
+  .mat-mdc-cell {
+    font-size: 8px;
+  }
+
+  .imageContainer img {
+    width: 40px;
+    height: 40px;
+  }
+
+}
