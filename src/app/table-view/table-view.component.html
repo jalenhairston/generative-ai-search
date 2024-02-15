@@ -1,4 +1,4 @@
-<mat-table id="resultTable" [dataSource]="dataSource">
+<mat-table id="resultTable" [dataSource]="dataSource" *ngIf="showTable">
 
   <ng-container matColumnDef="title">
     <mat-header-cell *matHeaderCellDef>Title</mat-header-cell>
@@ -17,7 +17,7 @@
     <mat-cell class="duration-cell"
               *matCellDef="let result">
       <div class="imageContainer">
-        <img *ngIf="isValidImageURL(result.imageURL)" [src]="result.imageURL" />
+        <img *ngIf="isValidURL(result.imageURL)" [src]="result.imageURL" />
       </div>
     </mat-cell>
   </ng-container>
@@ -27,16 +27,20 @@
     <mat-cell class="duration-cell"
               *matCellDef="let result">
       <div class="linkContainer">
-        {{result.link}}
+        <a [href]="result.link" (click)="$event.stopPropagation()" *ngIf="isValidURL(result.imageURL)">Click Here</a>
       </div>
     </mat-cell>
   </ng-container>
 
-  <mat-header-row *matHeaderRowDef="columnDefinitions"></mat-header-row>
+  <mat-header-row *matHeaderRowDef="columnDefinitions"  ></mat-header-row>
 
-  <mat-row *matRowDef="let row; columns: columnDefinitions"></mat-row>
+  <mat-row *matRowDef="let row; columns: columnDefinitions"
+           [routerLink]="['/result-details', row.id]"
+           [class.altShadeRow]="isAltShade(row.id)"
+  ></mat-row>
 
 
 </mat-table>
 <mat-paginator [length]="25" [pageSize]="3"
-               [pageSizeOptions]="[3, 5, 10]"></mat-paginator>
+               [pageSizeOptions]="[3, 5, 10, 21]" [style.display]="getPaginatorStyle()"></mat-paginator>
+<p *ngIf="!showTable" id="loadingText">Loading table data...</p>

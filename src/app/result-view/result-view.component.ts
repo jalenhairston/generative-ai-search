@@ -10,22 +10,19 @@ import {TableViewComponent} from "../table-view/table-view.component";
   selector: 'app-result-view',
   standalone: true,
   imports: [SearchComponent, ListViewComponent, FooterComponent, TableViewComponent],
-  providers: [QueryService],
+  providers: [],
   templateUrl: './result-view.component.html',
   styleUrl: './result-view.component.css'
 })
 export class ResultViewComponent implements OnInit {
 
   query: any
-  resultData: any
-  service = inject(QueryService)
   resultStatus: string = "pending"
   constructor(private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
     this.query = this.route.snapshot.paramMap.get('query')
-    this.resultData = this.service.getResult(this.query)
     this.resultStatus = "complete"
   }
 }

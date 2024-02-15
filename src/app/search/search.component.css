@@ -1,9 +1,12 @@
 
 .resultDisplay {
-  /*width: 100%;*/
-  /*aspect-ratio: 3.2;*/
   border: solid;
   max-height: 216px;
+}
+
+.resultDisplay #searchBarContent {
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
 
 .centerDisplay {
@@ -40,7 +43,6 @@
 
 #enterButton {
   width: 30%;
-  /*font: ;*/
 }
 
 
@@ -70,6 +72,13 @@
 
   .resultDisplay {
     font-size: 0.8em;
+  }
+}
+
+
+@media (max-width: 1400px) {
+  .resultDisplay #searchBarContent {
+    padding-bottom: 6%;
   }
 }
 

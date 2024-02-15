@@ -13,7 +13,7 @@ import {RouterLink} from "@angular/router";
   styleUrl: './search.component.css'
 })
 export class SearchComponent {
-  @Input() searchValue: string = "atl"
+  @Input() searchValue: string = ""
   @Input() cssClass!: string;
   @Input() searchStatus: string = ""
   isValidSearchValue: boolean = false;

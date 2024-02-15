@@ -1,0 +1,18 @@
+<div id="detailContainer">
+  <div id="resultDetailHeader" *ngIf="showData">
+    <img id="logo" src="assets/angular%20image.png">
+    <h1 id="title" >{{data.title}}</h1>
+  </div>
+  <div id="resultDetailContent" *ngIf="showData" >
+    <div id="resultDescriptionBar">
+      <p id="description" class="contentText">
+        {{data.description}}
+      </p>
+      <img id="image" [src]="data.imageURL">
+    </div>
+      <a [href]="data.link" class="contentText">{{data.link}}</a>
+  </div>
+  <p id="loadingText" *ngIf="!showData">Loading data...</p>
+  <app-footer></app-footer>
+</div>
+
