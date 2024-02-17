@@ -5,11 +5,12 @@ import  {SearchComponent} from "./search/search.component";
 import {SearchTemplateComponent} from "./search-template/search-template.component";
 import {ResultViewComponent} from "./result-view/result-view.component";
 import {FooterComponent} from "./footer/footer.component";
+import {BlogComponent} from "./blog/blog.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-    imports: [CommonModule, RouterOutlet, SearchComponent, SearchTemplateComponent, ResultViewComponent, FooterComponent],
+    imports: [CommonModule, RouterOutlet, SearchComponent, SearchTemplateComponent, ResultViewComponent, FooterComponent, BlogComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
