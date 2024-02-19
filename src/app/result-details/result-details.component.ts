@@ -12,11 +12,10 @@ import {NgIf} from "@angular/common";
     FooterComponent, HttpClientModule, NgIf],
   templateUrl: './result-details.component.html',
   styleUrl: './result-details.component.css',
-  providers: [QueryService]
+  providers: []
 })
 export class ResultDetailsComponent {
 
-  private id: string = ''
   private service: QueryService = inject(QueryService)
   data: any;
 
@@ -26,19 +25,13 @@ export class ResultDetailsComponent {
   }
 
   ngOnInit(): void {
-    let tempId = this.route.snapshot.paramMap.get('id')
-    if (tempId) {
-      this.id = tempId
-      this.service.getResult('')
-                  .subscribe(data => {
-                    this.data = this.getResultById(data, this.id)
-                    this.showData = true
-                  })
+    let id = this.route.snapshot.paramMap.get('id')
+    if (id) {
+      this.data = this.service.getResultById(id)
+      this.showData = true
     }
   }
 
-  getResultById(data: any, id: string): any {
-    return data.find((element: any) => element.id === id)
-  }
+
 
 }

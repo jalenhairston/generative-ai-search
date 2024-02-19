@@ -1,9 +1,9 @@
-import {Component, inject, ViewChild} from '@angular/core';
+import {Component, inject, Input, input, SimpleChanges, ViewChild} from '@angular/core';
 import {MatTableDataSource, MatTableModule} from "@angular/material/table";
 import {QueryService} from "../services/query.service";
 import {MatPaginator} from "@angular/material/paginator";
 import {NgIf} from "@angular/common";
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
 
 @Component({
@@ -16,8 +16,9 @@ import {HttpClientModule} from "@angular/common/http";
 })
 export class TableViewComponent {
 
-  private service = inject(QueryService)
-
+  private router: Router = inject(Router)
+  @Input() data!: any
+  // @Input() query!: string
   dataSource!: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator
 
@@ -28,13 +29,13 @@ export class TableViewComponent {
 
   }
 
-  ngAfterViewInit() {
-    this.service.getResult('thing')
-      .subscribe((data: any) => {
-        this.dataSource = new MatTableDataSource<any>(data)
-        this.showTable = true
-        this.dataSource.paginator = this.paginator
-      })
+  ngOnChanges(changes: SimpleChanges) {
+    if (!changes["data"].previousValue && Array.isArray(changes["data"].currentValue)) {
+      this.dataSource = new MatTableDataSource<any>(this.data)
+      this.showTable = true
+      this.dataSource.paginator = this.paginator
+    }
+
   }
 
   getPaginatorStyle() {
@@ -42,7 +43,10 @@ export class TableViewComponent {
   }
 
   isValidURL(url: string): boolean {
-    return url.length > 0
+    if (url) {
+      return url.length > 0
+    }
+    return false
   }
 
   isAltShade(id: number) {

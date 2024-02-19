@@ -8,7 +8,6 @@ img {
   margin-top: 25px;
   display: block;
   width: 80px;
-  height: 80px;
 }
 
 h2 {
@@ -17,6 +16,8 @@ h2 {
   font-size: 2em;
 }
 
+#containerDiv {
+}
 
 
 @media (max-width: 390px) {

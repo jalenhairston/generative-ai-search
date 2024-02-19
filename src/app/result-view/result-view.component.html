@@ -1,38 +1,24 @@
-<!--<div id="resultContainer">-->
-  <div id="contentContainer">
-    <div id="topBar">
-      <div id="logoFlexContainer">
-        <div id="logoDiv">
-          <img src="assets/angular%20image.png">
-          <h3>Search and Result Page</h3>
-        </div>
+<div id="contentContainer">
+  <div id="topBar">
+    <div id="logoFlexContainer">
+      <div id="logoDiv">
+        <img src="assets/angular%20image.png">
+        <h3>Search and Result Page</h3>
       </div>
-      <app-search id="topBarSearch"
-                  [cssClass]="'resultDisplay'"
-                  [searchValue]="query"
-                  [searchStatus]="resultStatus">
-      </app-search>
     </div>
-<!--    <div id="listContainer">-->
-<!--      <app-table-view></app-table-view>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <app-footer></app-footer>-->
-<!--</div>-->
-<div class="container spacer">
-  <div class="row justify-content-center">
-    <!-- Column -->
-    <div class="col-md-8 no-trans text-center">
-      <h2 class="title">Search Results</h2>
-<!--      <h6 class="subtitle">-->
-<!--        You can relay on our amazing features list and also our customer-->
-<!--        services will be great experience for you without doubt and in no-time-->
-<!--      </h6>-->
-    </div>
-    <!-- Column -->
+    <app-search id="topBarSearch"
+                [cssClass]="'resultDisplay'"
+                [searchValue]="query"
+                [searchStatus]="resultStatus">
+    </app-search>
   </div>
-  <app-table-view></app-table-view>
+  <div class="container spacer">
+    <div class="row justify-content-center">
+      <div class="col-md-8 no-trans text-center">
+        <h2 class="title">Search Results</h2>
+      </div>
+    </div>
+    <app-table-view [data]="data"></app-table-view>
+  </div>
+  <app-footer></app-footer>
 </div>
-      <app-footer></app-footer>
-
-  </div>

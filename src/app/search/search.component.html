@@ -1,7 +1,7 @@
 <div id="searchContainer" [class]="cssClass">
   <div id="searchBarContent">
-    <input id="searchInput" [value]="searchValue" (input)="updateSearchValue(searchInput.value)" placeholder="Search..." #searchInput>
-    <button id="enterButton" [routerLink]="['/result', searchValue]" [disabled]="!isValidSearchValue">Enter</button>
+    <input id="searchInput" [value]="searchValue" (input)="updateSearchValue(searchInput.value)" (keydown.enter)="executeSearch()" placeholder="Search..." #searchInput>
+    <button id="enterButton" (click)="executeSearch()" [disabled]="!isValidSearchValue()">Enter</button>
   </div>
   <div id="resultContent">
     <input id="resultBox" value="Server Status" [style]="getStatusStyle()" readonly>

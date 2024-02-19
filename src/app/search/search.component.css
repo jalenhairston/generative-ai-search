@@ -1,7 +1,10 @@
 
 .resultDisplay {
-  border: solid;
-  max-height: 216px;
+  border-bottom: solid;
+  height: 216px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .resultDisplay #searchBarContent {
@@ -16,11 +19,7 @@
 .centerDisplay {
   width: 585px;
   aspect-ratio: 2;
-  position: fixed;
-  top: 41%;
-  left: 50%;
-  margin-left: -292px;
-  margin-top: -146px;
+  margin: auto;
   border: solid;
   display: flex;
   flex-direction: column;
@@ -55,14 +54,6 @@
   width: 30%;
 }
 
-
-/*#resultContent {*/
-/*  margin-top: 6%;*/
-
-/*}*/
-
-
-
 #resultBox {
   width: 100%;
 }
@@ -84,9 +75,7 @@
 
 
 @media (max-width: 1400px) {
-  .resultDisplay #searchBarContent {
-    padding-bottom: 6%;
-  }
+
 }
 
 @media (max-width: 612px) {
@@ -104,6 +93,7 @@
     width: 280px;
     margin: auto;
     font-size: 1.5em;
+    border: solid;
   }
 
   #searchContainer > * > * {

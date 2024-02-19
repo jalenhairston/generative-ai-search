@@ -17,7 +17,7 @@
     <mat-cell class="duration-cell"
               *matCellDef="let result">
       <div class="imageContainer">
-        <img *ngIf="isValidURL(result.imageURL)" [src]="result.imageURL" />
+        <img *ngIf="isValidURL(result.image)" [src]="result.image" />
       </div>
     </mat-cell>
   </ng-container>
@@ -27,7 +27,7 @@
     <mat-cell class="duration-cell"
               *matCellDef="let result">
       <div class="linkContainer">
-        <a [href]="result.link" (click)="$event.stopPropagation()" *ngIf="isValidURL(result.imageURL)">Click Here</a>
+        <a [href]="result.url" (click)="$event.stopPropagation()" *ngIf="isValidURL(result.image)">Click Here</a>
       </div>
     </mat-cell>
   </ng-container>
