@@ -1,0 +1,51 @@
+Development for this project has been organized with my manager at Insight Enterprises. We developed a process for
+designing the app and its functionality and created a backlog to manage the development. The development thus far has
+involved research on the Angular framework, designing the different components and user views as wireframes,
+implementing the components in angular as proofs of concept, adding styles to the components using a style template,
+and the research and implementation of the Gemini AI API for delivering response data.
+
+The development tasks have been managed using a board to track what is complete, in progress, and in the backlog. Board
+items are added to the backlog after initial research, wireframing (if applicable), and proofs of concept have been
+approved. This is to ensure each step receives its necessary feedback and adjustments before additional work is done.
+
+The initial research effort involved studying and capturing information from the official Angular documentation to
+solidify skills in using the framework. This included study on the setup and configuration of an Angular application,
+the relationships between Angular components, templates, and services, and the binding of data from component to
+template and vice versa.
+
+The design process for a given component focused on the final user view that would be created. It began with
+"wireframing" the component- we used the Draw.io tool to generate web layouts and implement the base visual structure of
+our components using basic shapes and text. Details about the final design would be communicated and included in the
+wireframe, and feedback would be received before writing code.
+
+Once a component's wireframe was iterated upon and approved, it would be developed as a proof of concept (POC)- a visual
+implementation of the component template in HTML with placeholder data or static data retrieved from a mock backend
+service. With the design for the component completed during wireframing, the POC was to reproduce the design and take
+into account any style considerations missing from the wireframe (such as colors) and ensure the component was
+responsive to different resolutions and screen sizes. The POC also included binding the mock data from the component to
+the template and routing the user views of the application.
+
+Some components required additional research, such as the Angular Materials table component. The need for a well
+designed table that was easy to implement led to a search for a prebuilt component provided by Angular. We researched
+multiple prebuilt table, list, and grid components before deciding the Angular Materials table best suited our needs for
+a pre-styled, feature rich, responsive table design. Studying the documentation for the Angular Materials library, we
+implemented the table and included prebuilt features for pagination.
+
+Once the proofs of concept for the components was complete, we refined the visual display by implementing a style
+template. We included styles from the Free Wrapkit Angular Blog template to enhance the design of the components
+including typography, layout, and spacing. This involved additional research as the styles from the template were
+written in SCSS format. This required the project to be configured to process SCSS stylesheets as well as CSS
+stylesheets.
+
+Once the components were styled and visually complete, research began on the implementation of generative AI to return
+response data. Research on a few different AI models including OpenAI, Bing AI, and Gemini spotlighted Gemini as a model
+with a free API (with a rate limit) that would be ideal for implementing first. The Google Gen AI documentation
+identified a process for making requests to the API including generating an API Key, importing the Google generative-ai
+library into Node.js, sending prompts and handling responses. The generated API responses replaced the mock data
+retrieved by the service and bound to the components, completing functionality for the implementation of one of the
+intended API models. The response data includes a text response to the prompt, a relevant image, and a url to search
+engine results for the prompt.
+
+The development process spotlights design decisions early and enhances understanding of the final product between
+developer and client. It is advantaged in that the amount of unneccessary/unapproved work is minimized, and expectations
+are clearly understood by both parties before work is done, which helps to save time and effort throughout development.

@@ -19,7 +19,8 @@ export class ResultViewComponent implements OnInit {
 
   query: any
   data: any
-  resultStatus: string = "pending"
+  resultStatus: "waiting" | "complete" | "loading" = "loading"
+
   constructor(private route: ActivatedRoute) {
   }
 

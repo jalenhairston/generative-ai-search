@@ -16,9 +16,30 @@ import {Router} from "@angular/router";
 export class SearchComponent {
   private router: Router = inject(Router)
 
+
+  SEARCH_STATUS_STYLES = {
+    complete: {
+      text: "GOOD",
+      style: {
+        backgroundColor: "green"
+      }
+    },
+    loading: {
+      text: "PENDING",
+      style: {
+        backgroundColor: "yellow"
+      }
+    },
+    waiting: {
+      text: "STANDBY",
+      style: {
+        backgroundColor: "white"
+      }
+    },
+  }
+  @Input() searchStatus: keyof typeof this.SEARCH_STATUS_STYLES = "waiting"
   @Input() searchValue: string = ""
   @Input() searchClass!: string;
-  @Input() searchStatus: string = ""
   @Output() newSearchEvent = new EventEmitter<string>();
 
   ngOnInit() {
@@ -44,16 +65,11 @@ export class SearchComponent {
   }
 
   getStatusStyle(): any {
-    if (this.searchStatus === "complete") {
-      return {
-        backgroundColor: "green"
-      }
-    }
-    if (this.searchStatus === "pending") {
-      return {
-        backgroundColor: "yellow"
-      }
-    }
+    return this.SEARCH_STATUS_STYLES[this.searchStatus].style
+  }
+
+  getStatus(): string {
+    return "Server Status: " + this.SEARCH_STATUS_STYLES[this.searchStatus].text
   }
 }
 

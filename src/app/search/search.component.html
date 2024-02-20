@@ -4,6 +4,6 @@
     <button id="enterButton" (click)="executeSearch()" [disabled]="!isValidSearchValue()">Enter</button>
   </div>
   <div id="resultContent">
-    <input id="resultBox" value="Server Status" [style]="getStatusStyle()" readonly>
+    <input id="resultBox" [value]="getStatus()" [style]="getStatusStyle()" readonly>
   </div>
 </div>

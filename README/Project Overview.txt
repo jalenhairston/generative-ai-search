@@ -1,0 +1,20 @@
+Welcome to the Generative AI Search app! As a software engineer at Insight Enterprises, I am creating this web
+application as a side project leveraging various generative AI APIs and the Angular 17 framework. This project is
+intended to develop and solidify skills in development, design, and process for front end while adding practical value.
+The application will allow users to enter a prompt to recieve responses from multiple generative AI models, and assist
+users in selecting the best response.
+
+Generative AI Search consists of a search prompt screen, a results view with a table to view the AI generated responses,
+and detailed views of each provided result. The generated responses also include relevant images and urls to search
+engine results for the given prompt. This functionality is comprised of components designed in Angular. The components
+used include:
+    -Search Bar
+    -Search Screen Template
+    -Result Screen Template
+    -Angular Materials Table
+    -Result Detail Screen
+    -Footer
+
+The project's development thus far includes planning and research for using Angular and the Gen AI models implemented,
+creation and styling of the above components, routing between the user views, creation of a service to retreive and
+store data, and implementation of a Gemini AI model API to handle prompts and return responses.

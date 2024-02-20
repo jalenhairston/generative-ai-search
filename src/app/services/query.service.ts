@@ -25,6 +25,7 @@ export class QueryService {
     const result = await this.model.generateContent(prompt);
     const response = result.response;
     const text = response.text();
+    console.log(text)
     let data = JSON.parse(text.substring(
       text.indexOf("{"),
       text.indexOf("}") + 1))
