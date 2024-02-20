@@ -17,8 +17,9 @@ export class SearchComponent {
   private router: Router = inject(Router)
 
   @Input() searchValue: string = ""
-  @Input() cssClass!: string;
+  @Input() searchClass!: string;
   @Input() searchStatus: string = ""
+  @Output() newSearchEvent = new EventEmitter<string>();
 
   ngOnInit() {
     if (!this.searchValue) {
@@ -32,6 +33,9 @@ export class SearchComponent {
 
 
   executeSearch() {
+    if (this.searchClass === "resultDisplay") {
+      this.newSearchEvent.emit(this.searchValue);
+    }
     this.router.navigate([('/result/' + this.searchValue)]);
   }
 

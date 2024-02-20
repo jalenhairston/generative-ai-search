@@ -1,4 +1,4 @@
-<div id="searchContainer" [class]="cssClass">
+<div id="searchContainer" [class]="searchClass">
   <div id="searchBarContent">
     <input id="searchInput" [value]="searchValue" (input)="updateSearchValue(searchInput.value)" (keydown.enter)="executeSearch()" placeholder="Search..." #searchInput>
     <button id="enterButton" (click)="executeSearch()" [disabled]="!isValidSearchValue()">Enter</button>

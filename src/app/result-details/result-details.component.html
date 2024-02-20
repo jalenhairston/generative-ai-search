@@ -1,12 +1,12 @@
 <div id="detailContainer" class="container spacer">
   <div id="resultDetailHeader" *ngIf="showData">
     <img id="logo" src="assets/angular%20image.png">
-    <h1 id="title" >{{data.title}}</h1>
+    <h1 id="title" >{{data.name}}</h1>
   </div>
   <div id="resultDetailContent" *ngIf="showData" >
     <div id="resultDescriptionBar">
       <p id="description" class="contentText">
-        {{data.description}}
+        {{data.response}}
       </p>
       <img id="image" [src]="data.image">
     </div>

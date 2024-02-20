@@ -22,7 +22,7 @@ export class TableViewComponent {
   dataSource!: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator
 
-  columnDefinitions = ['title', 'description', 'image', 'link']
+  columnDefinitions = ['name', 'response', 'image', 'url']
   showTable: boolean = false
 
   constructor() {
@@ -30,12 +30,15 @@ export class TableViewComponent {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (!changes["data"].previousValue && Array.isArray(changes["data"].currentValue)) {
+    let isDataUpdate = Array.isArray(changes["data"].currentValue)
+    if (!changes["data"].previousValue && isDataUpdate) {
       this.dataSource = new MatTableDataSource<any>(this.data)
       this.showTable = true
       this.dataSource.paginator = this.paginator
     }
-
+    else if (isDataUpdate) {
+      this.dataSource.data = this.data
+    }
   }
 
   getPaginatorStyle() {

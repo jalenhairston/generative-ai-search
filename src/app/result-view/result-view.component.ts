@@ -28,4 +28,8 @@ export class ResultViewComponent implements OnInit {
     this.data = await this.service.generateResult(this.query)
     this.resultStatus = "complete"
   }
+
+  async executeNewSearch(newQuery: string) {
+    this.data = await this.service.generateResult(newQuery)
+  }
 }

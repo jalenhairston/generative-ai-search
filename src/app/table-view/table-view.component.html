@@ -1,14 +1,14 @@
 <mat-table id="resultTable" [dataSource]="dataSource" *ngIf="showTable">
 
-  <ng-container matColumnDef="title">
+  <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef>Title</mat-header-cell>
-    <mat-cell *matCellDef="let result">{{result.title}}</mat-cell>
+    <mat-cell *matCellDef="let result">{{result.name}}</mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="description">
+  <ng-container matColumnDef="response">
     <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
     <mat-cell class="description-cell"
-              *matCellDef="let result">{{result.description}}</mat-cell>
+              *matCellDef="let result">{{result.response}}</mat-cell>
 
   </ng-container>
 
@@ -22,7 +22,7 @@
     </mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="link">
+  <ng-container matColumnDef="url">
     <mat-header-cell *matHeaderCellDef>Link</mat-header-cell>
     <mat-cell class="duration-cell"
               *matCellDef="let result">
@@ -41,6 +41,6 @@
 
 
 </mat-table>
-<mat-paginator [length]="25" [pageSize]="3"
+<mat-paginator [length]="21" [pageSize]="3"
                [pageSizeOptions]="[3, 5, 10, 21]" [style.display]="getPaginatorStyle()"></mat-paginator>
 <p *ngIf="!showTable" id="loadingText">Loading table data...</p>

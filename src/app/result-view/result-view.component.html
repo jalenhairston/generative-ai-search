@@ -7,9 +7,11 @@
       </div>
     </div>
     <app-search id="topBarSearch"
-                [cssClass]="'resultDisplay'"
+                [searchClass]="'resultDisplay'"
                 [searchValue]="query"
-                [searchStatus]="resultStatus">
+                [searchStatus]="resultStatus"
+                (newSearchEvent)="executeNewSearch($event)"
+    >
     </app-search>
   </div>
   <div class="container spacer">
