@@ -1,0 +1,39 @@
+Prompts are the inputs and instructions given to a generative AI model in order to generate the desired output.
+They can include instructions, questions, data, examples, etc. Depending on the model, a prompt could include
+image data as well. Well written prompts should be tailored to the desired response and the model of AI being used. The
+Generative AI Search project uses a prompt to generate responses in json format to be processed by the application. The
+response format is:
+"{response: [text response from AI], image:[image url related to input], url:[search engine result page on prompt]}
+
+Prompt writing often benefits from in-context learning, an AI model's ability to temporarily learn from prompts and use
+context from previous prompts in the conversation. The prompt can also be enhanced with a number of techniques to
+improve or further customize the model's response. Some general guidelines for prompt writing include:
+Specificity - the more detail provided, the better chance the AI will have of giving the desired response
+Keywords - With keywords, the AI can more easily generate content related to the desired topic
+Examples - Prompts can include examples of the type of text desired, which greatly improves the consistency of responses
+
+With additional provided in the prompt, the response can be tailored to have a specific point of view, tone, formatting,
+length, etc.
+
+As an example, the prompt "As a developer, I need to add a local cache to my app" used with the Gemini Pro AI model
+generates a wide-spanning guide on understanding caching and its benefits including the purpose and types of caches,
+advice on how to choose the right caching strategy and key considerations when implementing caching. It additionally
+notes that it can provide more specific tailored advice if provided more details about the application.
+
+Adding a bit more detail to the prompt further specifies the response we recieve. the prompt: "
+As a developer, I need to add a local cache to my Angular application" generates a response more tailored to Angular
+development, providing approaches to consider including built-in browser caching, Angular CDK's InMemoryCache,
+third party libraries, and server side caching.
+
+With even more details and a format for the output response, the model is able to generate an even more specific result.
+The prompt "As a developer, I need to implement a local cache in my Angular 17 application. Walk me through the steps
+to implement using the built-in Angular Cache" gives a directive or input for the Gemini AI model as well as the
+context. With this level of detail in the prompt, the AI generates a step by step guide to implementing the specific
+cache requested including the necessary installations and imports, and examples of cache implementation and operations
+with code samples. With more specificity in the prompt (including context, input, examples, and the order in which they
+are provided) we are tailor the AI model's response to what purposes we need, making prompting a powerful tool for using
+ Generative AI that rewards specificity and creativity.
+
+There are a number of known algorithmic prompting techniques to guide the AI model toward different types of responses.
+While each AI model is different, these techniques can be applied to improve the quality and accuracy of AI model
+responses: https://en.wikipedia.org/wiki/Prompt_engineering
