@@ -26,12 +26,14 @@ export class ResultViewComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.query = this.route.snapshot.paramMap.get('query')
-    this.data = await this.service.generateResult(this.query)
+    this.query = this.service.getKeywords()
+    this.data = await this.service.generateResult()
     this.resultStatus = "complete"
   }
 
   async executeNewSearch(newQuery: string) {
-    this.data = await this.service.generateResult(newQuery)
+    this.data = null
+    this.service.setKeywords(newQuery)
+    this.data = await this.service.generateResult()
   }
 }

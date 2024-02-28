@@ -48,8 +48,8 @@ export class ModifierMenuComponent {
     length: this.MODIFIERS.length.default
   }
 
-  updateParameters(category: string, event: MatRadioChange): void {
-    this.parameters[category] = event.value
+  updateParameters(modifier: string, event: MatRadioChange): void {
+    this.parameters[modifier] = event.value
     this.service.setSearchParameters(this.parameters)
   }
 }

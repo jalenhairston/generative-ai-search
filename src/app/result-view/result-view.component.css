@@ -4,8 +4,6 @@
   width: 100%;
 }
 
-
-
 #contentContainer {
   padding-bottom: 200px;
 }
@@ -14,8 +12,6 @@
   display: flex;
   align-items: stretch;
 }
-
-
 
 #logoFlexContainer {
   flex-basis: 30%;
@@ -30,9 +26,11 @@
   width: 100%;
   text-align: center;
   margin-top: 20px;
-
 }
 
+#logo:hover {
+  cursor: pointer;
+}
 
 
 #logoDiv > h3 {
@@ -61,7 +59,6 @@
   }
 }
 
-
 @media (max-width: 612px) {
   #topBar {
     display: block;
@@ -71,8 +68,6 @@
   #logoFlexContainer {
     border: none;
   }
-
-
 
   #logoDiv > h3 {
     font-size: 1em;

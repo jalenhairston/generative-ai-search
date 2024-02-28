@@ -61,7 +61,8 @@ export class SearchComponent {
     if (this.searchClass === "resultDisplay") {
       this.newSearchEvent.emit(this.searchValue);
     }
-    this.router.navigate([('/result/' + this.searchValue)]);
+    this.service.setKeywords(this.searchValue);
+    this.router.navigate([('/result/')]);
   }
 
   isValidSearchValue(): boolean {

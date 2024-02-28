@@ -7,6 +7,7 @@ import {environment} from "../../environment/environment";
   providedIn: 'root'
 })
 export class QueryService {
+
   private AI_INFO = {
     gemini: {
       id: 1,
@@ -15,13 +16,12 @@ export class QueryService {
   }
   genAI = new GoogleGenerativeAI(environment.geminiApiKey)
   model = this.genAI.getGenerativeModel({model: "gemini-pro"})
-  data: any
   dataArray: any[] = []
   searchParameters: any
+  keywords: string = ""
 
-
-  async generateResult(query: string) {
-    let prompt = this.generatePrompt(query);
+  async generateResult() {
+    let prompt = this.generatePrompt();
     const result = await this.model.generateContent(prompt);
     const response = result.response;
     const text = response.text();
@@ -38,15 +38,26 @@ export class QueryService {
     return this.dataArray.find((element: any) => element.id === parseInt(id))
   }
 
-  generatePrompt(query: string): string {
-    console.log(this.searchParameters)
+  setSearchParameters(parameters: any) {
+    this.searchParameters = parameters
+  }
+
+  getKeywords(): string {
+    return this.keywords;
+  }
+
+  setKeywords(value: string) {
+    this.keywords = value;
+  }
+
+  generatePrompt(): string {
     let defaultString = "Default"
-    let prompt: string = `generate a response about ${query} that is no more than 6 sentences long`
+    let prompt: string = `generate a response about ${this.keywords} that is no more than 6 sentences long`
     if (!this.searchParameters) {
       return prompt
     }
     if (this.searchParameters.format !== defaultString) {
-      prompt = ` generate a list of ${this.searchParameters.format} about ${query}`
+      prompt = ` generate a list of ${this.searchParameters.format} about ${this.keywords}`
     }
     if (this.searchParameters.tone !== defaultString) {
       prompt += `, delivered in a ${this.searchParameters.tone} tone`
@@ -70,10 +81,5 @@ export class QueryService {
       prompt += `, explained at an ${this.searchParameters.detail} level of detail`
     }
     return prompt
-  }
-
-
-  setSearchParameters(parameters: any) {
-    this.searchParameters = parameters
   }
 }

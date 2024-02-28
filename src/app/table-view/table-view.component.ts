@@ -19,7 +19,6 @@ export class TableViewComponent {
 
   private router: Router = inject(Router)
   @Input() data!: any
-  // @Input() query!: string
   dataSource!: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator
 
@@ -31,14 +30,18 @@ export class TableViewComponent {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    let isDataUpdate = Array.isArray(changes["data"].currentValue)
-    if (!changes["data"].previousValue && isDataUpdate) {
+    let isDataUpdate: boolean = Array.isArray(changes["data"].currentValue)
+    let isDataUnload: boolean = !changes["data"].currentValue && Array.isArray(changes["data"].previousValue)
+    let isFirstTableRender =!changes["data"].previousValue && isDataUpdate
+    if (isFirstTableRender) {
       this.dataSource = new MatTableDataSource<any>(this.data)
       this.showTable = true
       this.dataSource.paginator = this.paginator
     }
     else if (isDataUpdate) {
       this.dataSource.data = this.data
+    } else if (isDataUnload) {
+      this.showTable = false
     }
   }
 

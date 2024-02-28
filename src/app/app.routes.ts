@@ -5,6 +5,6 @@ import {ResultDetailsComponent} from "./result-details/result-details.component"
 
 export const routes: Routes = [
   {path: '', component: SearchTemplateComponent},
-  {path: 'result/:query', component: ResultViewComponent},
+  {path: 'result', component: ResultViewComponent},
   {path: 'result-details/:id', component: ResultDetailsComponent}
 ];
