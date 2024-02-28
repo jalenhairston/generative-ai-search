@@ -2,50 +2,32 @@ import {Component, inject} from '@angular/core';
 import {MatRadioButton, MatRadioChange, MatRadioGroup} from "@angular/material/radio";
 import {QueryService} from "../services/query.service";
 import {FormsModule} from "@angular/forms";
+import {NgForOf} from "@angular/common";
 @Component({
   selector: 'app-modifier-menu',
   standalone: true,
   imports: [
     MatRadioButton,
     MatRadioGroup,
-    FormsModule
+    FormsModule,
+    NgForOf
   ],
   templateUrl: './modifier-menu.component.html',
   styleUrl: './modifier-menu.component.css'})
 export class ModifierMenuComponent {
   MODIFIERS: any = {
-    tone: {
-      default: "Default",
-      excited: "Excited",
-      sarcastic: "Sarcastic",
-      bored: "Bored"
-    },
-    detail: {
-      default: "Default",
-      simplified: "Simplified",
-      intermediate: "Intermediate",
-      advanced: "Advanced"
-    },
-    format: {
-      default: "Default",
-      instructions: "Instructions",
-      questions: "Questions",
-      facts: "Facts"
-    },
-    length: {
-      default: "Default",
-      short: "Short",
-      medium: "Medium",
-      long: "Long"
-    }
+    tone: ["Default", "Excited", "Sarcastic", "Bored"],
+    detail: ["Default", "Simplified", "Intermediate", "Advanced"],
+    format: ["Default", "Instructions", "Questions", "Facts"],
+    length: ["Default", "Short", "Medium", "Long"],
   }
 
   private service: QueryService = inject(QueryService)
   parameters: any = {
-    tone: this.MODIFIERS.tone.default,
-    detail: this.MODIFIERS.detail.default,
-    format: this.MODIFIERS.format.default,
-    length: this.MODIFIERS.length.default
+    tone: this.MODIFIERS.tone[0],
+    detail: this.MODIFIERS.detail[0],
+    format: this.MODIFIERS.format[0],
+    length: this.MODIFIERS.length[0]
   }
 
   updateParameters(modifier: string, event: MatRadioChange): void {

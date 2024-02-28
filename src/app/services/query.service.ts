@@ -21,10 +21,10 @@ export class QueryService {
   keywords: string = ""
 
   async generateResult() {
-    let prompt = this.generatePrompt();
+    let prompt: string = this.generatePrompt();
     const result = await this.model.generateContent(prompt);
     const response = result.response;
-    const text = response.text();
+    const text: string = response.text();
     let data: any = {
       response: text,
       name: this.AI_INFO.gemini.name,
@@ -51,7 +51,7 @@ export class QueryService {
   }
 
   generatePrompt(): string {
-    let defaultString = "Default"
+    let defaultString: string = "Default"
     let prompt: string = `generate a response about ${this.keywords} that is no more than 6 sentences long`
     if (!this.searchParameters) {
       return prompt
