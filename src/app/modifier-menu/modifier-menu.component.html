@@ -1,0 +1,41 @@
+<h3 id="title">Result Modifiers</h3>
+<div id="modifierContainer">
+  <div id="tone" class="modifierColumn">
+    <p class="columnTitle">Tone</p>
+    <mat-radio-group [value]="parameters.tone" (change)="updateParameters('tone', $event)">
+      <mat-radio-button [value]="MODIFIERS.tone.default">{{MODIFIERS.tone.default}}</mat-radio-button>
+      <mat-radio-button [value]="MODIFIERS.tone.excited">{{MODIFIERS.tone.excited}}</mat-radio-button>
+      <mat-radio-button [value]="MODIFIERS.tone.sarcastic">{{MODIFIERS.tone.sarcastic}}</mat-radio-button>
+      <mat-radio-button [value]="MODIFIERS.tone.bored">{{MODIFIERS.tone.bored}}</mat-radio-button>
+    </mat-radio-group>
+
+
+  </div>
+  <div id="detail" class="modifierColumn">
+    <p class="columnTitle">Detail</p>
+    <mat-radio-group [value]="parameters.detail" (change)="updateParameters('detail', $event)">
+      <mat-radio-button [value]="MODIFIERS.detail.default">{{MODIFIERS.detail.default}}</mat-radio-button>
+      <mat-radio-button [value]="MODIFIERS.detail.simplified">{{MODIFIERS.detail.simplified}}</mat-radio-button>
+      <mat-radio-button [value]="MODIFIERS.detail.intermediate">{{MODIFIERS.detail.intermediate}}</mat-radio-button>
+      <mat-radio-button [value]="MODIFIERS.detail.advanced">{{MODIFIERS.detail.advanced}}</mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <div id="format" class="modifierColumn">
+    <p class="columnTitle">Format</p>
+    <mat-radio-group [value]="parameters.format" (change)="updateParameters('format', $event)">
+      <mat-radio-button [value]="MODIFIERS.format.default">{{MODIFIERS.format.default}}</mat-radio-button>
+      <mat-radio-button [value]="MODIFIERS.format.instructions">{{MODIFIERS.format.instructions}}</mat-radio-button>
+      <mat-radio-button [value]="MODIFIERS.format.questions">{{MODIFIERS.format.questions}}</mat-radio-button>
+      <mat-radio-button [value]="MODIFIERS.format.facts">{{MODIFIERS.format.facts}}</mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <div id="length" class="modifierColumn">
+    <p class="columnTitle">Length</p>
+    <mat-radio-group [value]="parameters.length" (change)="updateParameters('length', $event)">
+      <mat-radio-button [value]="MODIFIERS.length.default">{{MODIFIERS.length.default}}</mat-radio-button>
+      <mat-radio-button [value]="MODIFIERS.length.short">{{MODIFIERS.length.short}}</mat-radio-button>
+      <mat-radio-button [value]="MODIFIERS.length.medium">{{MODIFIERS.length.medium}}</mat-radio-button>
+      <mat-radio-button [value]="MODIFIERS.length.long">{{MODIFIERS.length.long}}</mat-radio-button>
+    </mat-radio-group>
+  </div>
+</div>

@@ -6,31 +6,31 @@
   </ng-container>
 
   <ng-container matColumnDef="response">
-    <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef>Response</mat-header-cell>
     <mat-cell class="description-cell"
               *matCellDef="let result">{{result.response}}</mat-cell>
 
   </ng-container>
 
-  <ng-container matColumnDef="image">
-    <mat-header-cell *matHeaderCellDef>Image</mat-header-cell>
-    <mat-cell class="duration-cell"
-              *matCellDef="let result">
-      <div class="imageContainer">
-        <img *ngIf="isValidURL(result.image)" [src]="result.image" />
-      </div>
-    </mat-cell>
-  </ng-container>
+<!--  <ng-container matColumnDef="image">-->
+<!--    <mat-header-cell *matHeaderCellDef>Image</mat-header-cell>-->
+<!--    <mat-cell class="duration-cell"-->
+<!--              *matCellDef="let result">-->
+<!--      <div class="imageContainer">-->
+<!--        <img *ngIf="isValidURL(result.image)" [src]="result.image" />-->
+<!--      </div>-->
+<!--    </mat-cell>-->
+<!--  </ng-container>-->
 
-  <ng-container matColumnDef="url">
-    <mat-header-cell *matHeaderCellDef>Link</mat-header-cell>
-    <mat-cell class="duration-cell"
-              *matCellDef="let result">
-      <div class="linkContainer">
-        <a [href]="result.url" (click)="$event.stopPropagation()" *ngIf="isValidURL(result.url)">Click Here</a>
-      </div>
-    </mat-cell>
-  </ng-container>
+<!--  <ng-container matColumnDef="url">-->
+<!--    <mat-header-cell *matHeaderCellDef>Link</mat-header-cell>-->
+<!--    <mat-cell class="duration-cell"-->
+<!--              *matCellDef="let result">-->
+<!--      <div class="linkContainer">-->
+<!--        <a [href]="result.url" (click)="$event.stopPropagation()" *ngIf="isValidURL(result.url)">Click Here</a>-->
+<!--      </div>-->
+<!--    </mat-cell>-->
+<!--  </ng-container>-->
 
   <mat-header-row *matHeaderRowDef="columnDefinitions"  ></mat-header-row>
 
@@ -44,3 +44,4 @@
 <mat-paginator [length]="21" [pageSize]="3"
                [pageSizeOptions]="[3, 5, 10, 21]" [style.display]="getPaginatorStyle()"></mat-paginator>
 <p *ngIf="!showTable" id="loadingText">Loading table data...</p>
+<mat-progress-spinner *ngIf="!showTable" id="loadingIcon" mode="indeterminate" color="warn"></mat-progress-spinner>

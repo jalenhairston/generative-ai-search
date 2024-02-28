@@ -2,6 +2,7 @@ import {Component, EventEmitter, inject, Input, Output} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {RouterLink} from "@angular/router";
 import {Router} from "@angular/router";
+import {QueryService} from "../services/query.service";
 
 @Component({
   selector: 'app-search',
@@ -15,6 +16,7 @@ import {Router} from "@angular/router";
 })
 export class SearchComponent {
   private router: Router = inject(Router)
+  private service: QueryService = inject(QueryService)
 
 
   SEARCH_STATUS_STYLES = {
@@ -41,6 +43,8 @@ export class SearchComponent {
   @Input() searchValue: string = ""
   @Input() searchClass!: string;
   @Output() newSearchEvent = new EventEmitter<string>();
+
+  parameters: any
 
   ngOnInit() {
     if (!this.searchValue) {

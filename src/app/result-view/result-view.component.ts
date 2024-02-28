@@ -1,14 +1,15 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {SearchComponent} from "../search/search.component";
 import {FooterComponent} from "../footer/footer.component";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, RouterLink} from "@angular/router";
 import {QueryService} from "../services/query.service";
 import {TableViewComponent} from "../table-view/table-view.component";
+import {HttpClientModule} from "@angular/common/http";
 
 @Component({
   selector: 'app-result-view',
   standalone: true,
-  imports: [SearchComponent, FooterComponent, TableViewComponent],
+  imports: [SearchComponent, FooterComponent, TableViewComponent, RouterLink],
   providers: [],
   templateUrl: './result-view.component.html',
   styleUrl: './result-view.component.css'

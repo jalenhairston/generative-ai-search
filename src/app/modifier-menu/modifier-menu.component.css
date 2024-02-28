@@ -1,0 +1,74 @@
+#title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: .25rem;
+  margin-top: 2rem;
+}
+
+#modifierContainer {
+  display: flex;
+  justify-content: space-around;
+  width: 585px;
+  margin: auto;
+  padding: 0 20px 10px;
+  border: solid rgb(141, 151, 173)
+}
+
+.modifierColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.columnTitle {
+  margin-top: .5rem;
+  margin-bottom: .1rem;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+:host ::ng-deep .mat-mdc-radio-button {
+  display: block !important;
+  /*padding-left: 12%;*/
+}
+
+:host ::ng-deep  #detail .mat-mdc-radio-button {
+  padding-left: 12%;
+}
+
+:host ::ng-deep  #format .mat-mdc-radio-button {
+  padding-left: 12%;
+}
+
+:host ::ng-deep .mdc-form-field {
+  margin: auto;
+}
+
+
+:host ::ng-deep .mdc-form-field>label {
+  /*margin-top: 6px !important;*/
+  margin-bottom: 2px;
+  /*font-size: 0.8rem;*/
+  color: rgb(141, 151, 173);
+  font-family: "Inter",
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Roboto,
+  Helvetica,
+  Arial,
+  sans-serif,
+  "Apple Color Emoji",
+  "Segoe UI Emoji",
+  "Segoe UI Symbol"
+}
+
+:host ::ng-deep .mat-mdc-radio-button .mdc-radio {
+  padding: 0 !important;
+}
+
+@media (max-width: 612px) {
+  #modifierContainer {
+    width: 264px;
+  }
+}

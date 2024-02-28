@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+#loadingIcon {
+  margin: auto;
+  color: #e02c34;
+}
+
 .imageContainer {
   width: 100%;
   overflow: hidden;
@@ -24,12 +29,12 @@
 }
 
 .mat-column-title {
-  flex: 0.7;
+  flex: 0.5;
   padding-left: 24px;
 }
 
-.mat-column-description {
-  flex: 1.7;
+.mat-column-response {
+  flex: 2.5;
 }
 
 .mat-column-image {

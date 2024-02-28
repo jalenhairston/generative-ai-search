@@ -5,11 +5,12 @@ import {MatPaginator} from "@angular/material/paginator";
 import {NgIf} from "@angular/common";
 import {Router, RouterLink} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
+import {MatProgressSpinner} from "@angular/material/progress-spinner";
 
 @Component({
   selector: 'app-table-view',
   standalone: true,
-  imports: [MatTableModule, MatPaginator, NgIf, RouterLink, HttpClientModule],
+  imports: [MatTableModule, MatPaginator, MatProgressSpinner, NgIf, RouterLink, HttpClientModule],
   templateUrl: './table-view.component.html',
   styleUrl: './table-view.component.css',
   providers: [QueryService]
@@ -22,7 +23,7 @@ export class TableViewComponent {
   dataSource!: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator
 
-  columnDefinitions = ['name', 'response', 'image', 'url']
+  columnDefinitions = ['name', 'response'/*, 'image', 'url'*/]
   showTable: boolean = false
 
   constructor() {

@@ -30,6 +30,7 @@ export class ResultDetailsComponent {
       this.data = this.service.getResultById(id)
       this.showData = true
     }
+
   }
 
 
