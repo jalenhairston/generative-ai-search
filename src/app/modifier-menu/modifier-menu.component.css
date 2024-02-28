@@ -8,9 +8,13 @@
 #modifierContainer {
   display: flex;
   justify-content: space-around;
+
+  padding: 0 20px 10px;
+}
+
+.searchDisplay #modifierContainer {
   width: 585px;
   margin: auto;
-  padding: 0 20px 10px;
   border: solid rgb(141, 151, 173)
 }
 
@@ -29,7 +33,6 @@
 
 :host ::ng-deep .mat-mdc-radio-button {
   display: block !important;
-  /*padding-left: 12%;*/
 }
 
 :host ::ng-deep  #detail .mat-mdc-radio-button {
@@ -53,6 +56,37 @@
 
 :host ::ng-deep .mat-mdc-radio-button .mdc-radio {
   padding: 0 !important;
+}
+
+/*RESULT SCREEN SPECIFIC STYLES*/
+
+.resultDisplay, .resultDisplay #modifierContainer {
+  height: 100%;
+}
+
+.resultDisplay #modifierContainer {
+  border-bottom: solid rgb(141, 151, 173)
+}
+
+.resultDisplay h3 {
+  display: none;
+}
+
+.resultDisplay .modifierColumn {
+  justify-content: space-around;
+}
+
+@media (max-width: 1000px) {
+  .resultDisplay #modifierContainer {
+    width: 500px;
+    margin: auto;
+    border: none;
+  }
+
+  .resultDisplay h3 {
+    display: block
+  }
+
 }
 
 @media (max-width: 612px) {

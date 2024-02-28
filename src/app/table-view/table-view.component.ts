@@ -2,7 +2,7 @@ import {Component, inject, Input, input, SimpleChanges, ViewChild} from '@angula
 import {MatTableDataSource, MatTableModule} from "@angular/material/table";
 import {QueryService} from "../services/query.service";
 import {MatPaginator} from "@angular/material/paginator";
-import {NgIf} from "@angular/common";
+import {DatePipe, KeyValuePipe, NgForOf, NgIf, TitleCasePipe} from "@angular/common";
 import {Router, RouterLink} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
 import {MatProgressSpinner} from "@angular/material/progress-spinner";
@@ -10,7 +10,7 @@ import {MatProgressSpinner} from "@angular/material/progress-spinner";
 @Component({
   selector: 'app-table-view',
   standalone: true,
-  imports: [MatTableModule, MatPaginator, MatProgressSpinner, NgIf, RouterLink, HttpClientModule],
+  imports: [MatTableModule, MatPaginator, MatProgressSpinner, NgIf, RouterLink, HttpClientModule, NgForOf, KeyValuePipe, TitleCasePipe, DatePipe],
   templateUrl: './table-view.component.html',
   styleUrl: './table-view.component.css',
   providers: [QueryService]
@@ -22,7 +22,8 @@ export class TableViewComponent {
   dataSource!: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator
 
-  columnDefinitions = ['name', 'response'/*, 'image', 'url'*/]
+  columnDefinitions: string[] = ['status', 'modifiers', 'response'/*, 'image', 'url'*/]
+  modifierDefinitions: string[] =['tone', 'detail', 'format', 'length']
   showTable: boolean = false
 
   constructor() {
@@ -56,8 +57,19 @@ export class TableViewComponent {
     return false
   }
 
-  isAltShade(id: number) {
-    return id % 2 === 0;
+  isAltShade(index: number) {
+    return index % 2 === 1;
+  }
+
+  checkResultStatus(index: number): string {
+    return index === this.data.length - 1? "Current": "Cache"
+  }
+
+  getDataLength() {
+    if (this.data) {
+      return this.data.length
+    }
+    return 1;
   }
 
 }

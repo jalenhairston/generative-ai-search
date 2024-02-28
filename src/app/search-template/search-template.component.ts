@@ -15,5 +15,4 @@ import {ModifierMenuComponent} from "../modifier-menu/modifier-menu.component";
   styleUrl: './search-template.component.css'
 })
 export class SearchTemplateComponent {
-
 }

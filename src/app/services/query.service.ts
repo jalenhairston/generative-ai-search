@@ -10,10 +10,10 @@ export class QueryService {
 
   private AI_INFO = {
     gemini: {
-      id: 1,
       name: "Gemini"
     }
   }
+  private id = 0
   genAI = new GoogleGenerativeAI(environment.geminiApiKey)
   model = this.genAI.getGenerativeModel({model: "gemini-pro"})
   dataArray: any[] = []
@@ -26,11 +26,17 @@ export class QueryService {
     const response = result.response;
     const text: string = response.text();
     let data: any = {
-      response: text,
+      id: ++this.id,
+      date: Date.now(),
       name: this.AI_INFO.gemini.name,
-      id: this.AI_INFO.gemini.id
+      response: text,
+      modifiers: this.searchParameters
     }
-    this.dataArray = [data]
+    if (this.dataArray.length >= 10) {
+      this.dataArray.shift()
+    }
+    let finalData: any = JSON.parse(JSON.stringify(data))
+    this.dataArray.push(finalData)
     return this.dataArray
   }
 
@@ -40,6 +46,7 @@ export class QueryService {
 
   setSearchParameters(parameters: any) {
     this.searchParameters = parameters
+    console.log(this.generatePrompt())
   }
 
   getKeywords(): string {
@@ -52,9 +59,9 @@ export class QueryService {
 
   generatePrompt(): string {
     let defaultString: string = "Default"
-    let prompt: string = `generate a response about ${this.keywords} that is no more than 6 sentences long`
+    let prompt: string = `generate a response about ${this.keywords}`
     if (!this.searchParameters) {
-      return prompt
+      return prompt + " that is no more than 6 sentences long"
     }
     if (this.searchParameters.format !== defaultString) {
       prompt = ` generate a list of ${this.searchParameters.format} about ${this.keywords}`

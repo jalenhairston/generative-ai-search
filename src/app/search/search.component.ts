@@ -58,10 +58,10 @@ export class SearchComponent {
 
 
   executeSearch() {
-    if (this.searchClass === "resultDisplay") {
-      this.newSearchEvent.emit(this.searchValue);
-    }
     this.service.setKeywords(this.searchValue);
+    if (this.searchClass === "resultDisplay") {
+      this.newSearchEvent.emit();
+    }
     this.router.navigate([('/result/')]);
   }
 

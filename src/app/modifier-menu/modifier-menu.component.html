@@ -1,30 +1,33 @@
-<h3 id="title">Result Modifiers</h3>
-<div id="modifierContainer">
-  <div id="tone" class="modifierColumn">
-    <p class="columnTitle">Tone</p>
-    <mat-radio-group [value]="parameters.tone" (change)="updateParameters('tone', $event)">
-      <mat-radio-button *ngFor="let modifier of MODIFIERS.tone" [value]="modifier">{{modifier}}</mat-radio-button>
-    </mat-radio-group>
+<div id="menuContainer" [class]="menuClass">
+  <h3 id="title">Result Modifiers</h3>
+  <div id="modifierContainer">
+    <div id="tone" class="modifierColumn">
+      <p class="columnTitle">Tone</p>
+      <mat-radio-group [value]="parameters.tone" (change)="updateParameters('tone', $event)">
+        <mat-radio-button *ngFor="let modifier of MODIFIERS.tone" [value]="modifier">{{modifier}}</mat-radio-button>
+      </mat-radio-group>
 
 
-  </div>
-  <div id="detail" class="modifierColumn">
-    <p class="columnTitle">Detail</p>
-    <mat-radio-group [value]="parameters.detail" (change)="updateParameters('detail', $event)">
-      <mat-radio-button *ngFor="let modifier of MODIFIERS.detail" [value]="modifier">{{modifier}}</mat-radio-button>
-    </mat-radio-group>
-  </div>
-  <div id="format" class="modifierColumn">
-    <p class="columnTitle">Format</p>
-    <mat-radio-group [value]="parameters.format" (change)="updateParameters('format', $event)">
-      <mat-radio-button *ngFor="let modifier of MODIFIERS.format" [value]="modifier">{{modifier}}</mat-radio-button>
+    </div>
+    <div id="detail" class="modifierColumn">
+      <p class="columnTitle">Detail</p>
+      <mat-radio-group [value]="parameters.detail" (change)="updateParameters('detail', $event)">
+        <mat-radio-button *ngFor="let modifier of MODIFIERS.detail" [value]="modifier">{{modifier}}</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div id="format" class="modifierColumn">
+      <p class="columnTitle">Format</p>
+      <mat-radio-group [value]="parameters.format" (change)="updateParameters('format', $event)">
+        <mat-radio-button *ngFor="let modifier of MODIFIERS.format" [value]="modifier">{{modifier}}</mat-radio-button>
 
-    </mat-radio-group>
+      </mat-radio-group>
+    </div>
+    <div id="length" class="modifierColumn">
+      <p class="columnTitle">Length</p>
+      <mat-radio-group [value]="parameters.length" (change)="updateParameters('length', $event)">
+        <mat-radio-button *ngFor="let modifier of MODIFIERS.length" [value]="modifier">{{modifier}}</mat-radio-button>
+      </mat-radio-group>
+    </div>
   </div>
-  <div id="length" class="modifierColumn">
-    <p class="columnTitle">Length</p>
-    <mat-radio-group [value]="parameters.length" (change)="updateParameters('length', $event)">
-      <mat-radio-button *ngFor="let modifier of MODIFIERS.length" [value]="modifier">{{modifier}}</mat-radio-button>
-    </mat-radio-group>
-  </div>
+
 </div>

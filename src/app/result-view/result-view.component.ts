@@ -4,12 +4,12 @@ import {FooterComponent} from "../footer/footer.component";
 import {ActivatedRoute, RouterLink} from "@angular/router";
 import {QueryService} from "../services/query.service";
 import {TableViewComponent} from "../table-view/table-view.component";
-import {HttpClientModule} from "@angular/common/http";
+import {ModifierMenuComponent} from "../modifier-menu/modifier-menu.component";
 
 @Component({
   selector: 'app-result-view',
   standalone: true,
-  imports: [SearchComponent, FooterComponent, TableViewComponent, RouterLink],
+  imports: [SearchComponent, FooterComponent, TableViewComponent, RouterLink, ModifierMenuComponent],
   providers: [],
   templateUrl: './result-view.component.html',
   styleUrl: './result-view.component.css'
@@ -31,9 +31,8 @@ export class ResultViewComponent implements OnInit {
     this.resultStatus = "complete"
   }
 
-  async executeNewSearch(newQuery: string) {
+  async executeNewSearch() {
     this.data = null
-    this.service.setKeywords(newQuery)
     this.data = await this.service.generateResult()
   }
 }

@@ -25,12 +25,26 @@
 }
 
 .mat-mdc-cell {
-  padding: 20px 0 20px 0;
+  padding: 20px 0 20px 24px;
 }
 
-.mat-column-title {
-  flex: 0.5;
+.mat-column-status {
+  flex: 0.7;
   padding-left: 24px;
+}
+
+.mat-column-modifiers {
+  flex: 0.6;
+}
+
+mat-cell.mat-column-modifiers {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.mat-column-modifiers .modifierTableEntry {
+  margin-bottom: 3px;
 }
 
 .mat-column-response {

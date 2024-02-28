@@ -10,9 +10,10 @@
                 [searchClass]="'resultDisplay'"
                 [searchValue]="query"
                 [searchStatus]="resultStatus"
-                (newSearchEvent)="executeNewSearch($event)"
+                (newSearchEvent)="executeNewSearch()"
     >
     </app-search>
+    <app-modifier-menu id="topBarMenu" [menuClass]="'resultDisplay'"></app-modifier-menu>
   </div>
   <div class="container spacer">
     <div class="row justify-content-center">

@@ -1,8 +1,8 @@
 <mat-table id="resultTable" [dataSource]="dataSource" *ngIf="showTable">
 
-  <ng-container matColumnDef="name">
-    <mat-header-cell *matHeaderCellDef>Title</mat-header-cell>
-    <mat-cell *matCellDef="let result">{{result.name}}</mat-cell>
+  <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+    <mat-cell *matCellDef="let result; let i = index">{{checkResultStatus(i)}} ({{result.date | date:'mediumTime'}})</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="response">
@@ -22,6 +22,16 @@
 <!--    </mat-cell>-->
 <!--  </ng-container>-->
 
+  <ng-container matColumnDef="modifiers">
+    <mat-header-cell *matHeaderCellDef>Modifiers</mat-header-cell>
+    <mat-cell class="duration-cell"
+              *matCellDef="let result">
+      <span class="modifierTableEntry" *ngFor="let modifier of modifierDefinitions">
+        {{modifier | titlecase}}: {{result.modifiers[modifier]}}
+      </span>
+    </mat-cell>
+  </ng-container>
+
 <!--  <ng-container matColumnDef="url">-->
 <!--    <mat-header-cell *matHeaderCellDef>Link</mat-header-cell>-->
 <!--    <mat-cell class="duration-cell"-->
@@ -34,14 +44,14 @@
 
   <mat-header-row *matHeaderRowDef="columnDefinitions"  ></mat-header-row>
 
-  <mat-row *matRowDef="let row; columns: columnDefinitions"
+  <mat-row *matRowDef="let row; let i = index; columns: columnDefinitions"
            [routerLink]="['/result-details', row.id]"
-           [class.altShadeRow]="isAltShade(row.id)"
+           [class.altShadeRow]="isAltShade(i)"
   ></mat-row>
 
 
 </mat-table>
-<mat-paginator [length]="21" [pageSize]="3"
-               [pageSizeOptions]="[3, 5, 10, 21]" [style.display]="getPaginatorStyle()"></mat-paginator>
+<mat-paginator [length]="getDataLength()" [pageSize]="3"
+               [pageSizeOptions]="[3, 5, 10]" [style.display]="getPaginatorStyle()"></mat-paginator>
 <p *ngIf="!showTable" id="loadingText">Loading table data...</p>
 <mat-progress-spinner *ngIf="!showTable" id="loadingIcon" mode="indeterminate" color="warn"></mat-progress-spinner>
