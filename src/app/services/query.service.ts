@@ -37,7 +37,7 @@ export class QueryService {
     }
     let finalData: any = JSON.parse(JSON.stringify(data))
     this.dataArray.push(finalData)
-    return this.dataArray
+    return this.dataArray.reverse()
   }
 
   getResultById(id: string): any {

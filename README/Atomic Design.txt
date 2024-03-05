@@ -1,0 +1,29 @@
+Atomic Design is a methodology born of a need for an efficient way to develop modern web applications, with their
+ever-evolving complexity and scope of features. It informs the ways organizations design, iterate, and communicate
+throughout their project's process as much as it informs the project itself. Applicable for all types of interfaces, it
+follows the approach of modularizing content to manage the need to reach consumers responsively - things like different
+devices and languages contribute to an "increasingly diverse and eclectic digital landscape" that requires development
+to take a more functional approach. It applies separation of concerns to the visual layer of an application by breaking
+down the elements of an interface into self contained pieces of functionality that come together when put into context.
+According to atomic design, the result of a well designed interface is a system that contains resusable, efficient, and
+modular components and yet is easily understood, tested, and maintained.
+
+As a methodology, it is important that atomic design is communicated and understood among developers on a project or in
+an organization, as it is meant to promote consistency across a project. For the purposes of this article, the names of
+atomic design elements used will adhere to the book "Atomic Design" written by Brad Frost. However, as long as they are
+understood and agreed upon, the names given to these design elements are not rigid and an organization may implement
+whichever names they choose, as it is the details of atomic design that claim greater importance.
+
+For the overwhelming majority of the web's history (and human history, according to Frost), the primary container for
+content, information, etc has been the page. Web content, book content, articles, magazines, and visual elements are
+predominantly organized into pages and have been for centuries. Atomic design recognizes, however, that pages aren't
+very useful context for development teams when the content and functionality of a page can vary dramatically. This means
+ a page can be very simple and take a few hours or days to complete and refine, or a page can be very complex and take
+ months to complete. Atomic design chiefly provides new language for development teams to use that breaks away from the
+ abstract "page" and focuses more on the content and functionality involved. Addressing modularity, it breaks down
+ interfaces into the smallest bits of functionality to promote their reusability. Elements, Atoms, Molecules, and
+ Templates are added to the vocabulary, each component comprised of smaller components. While planning and designing a
+ project this way can require a lot of effort in the beginning stages, fleshing out how all the pieces come together,
+ development in this fashion picks up swiftly once components are able to be reused with complete functionality, making
+ it easier to extend a project's scope or iteratively update the solution.
+

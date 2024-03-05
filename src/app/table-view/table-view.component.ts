@@ -62,7 +62,7 @@ export class TableViewComponent {
   }
 
   checkResultStatus(index: number): string {
-    return index === this.data.length - 1? "Current": "Cache"
+    return index === 0? "Current": "Cache"
   }
 
   getDataLength() {
