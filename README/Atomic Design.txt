@@ -15,7 +15,7 @@ styling commuincates tone, but atoms do not contribute to very much meaningful f
 
 Molecules, recognized in chemistry as groups of atoms bonded in a particular way, is a fitting analogy for the next
 level of encapsulation. When molecules form from atoms, they take on their own distint properties. Much in the same way,
-molecules built from interface atoms give more meaning and context to the individual parts. From Forst, they are
+molecules built from interface atoms give more meaning and context to the individual parts. From Frost, they are
 "relatively simple groups of UI elements functioning together as a unit". For example, a search form molecule can be
 comprised of a form label, search input, and a submit button as atoms. The atoms are given greater purpose when they are
 combined in this manner. The idea is to create molecules that adhere to the single responsibility principle - that is,
