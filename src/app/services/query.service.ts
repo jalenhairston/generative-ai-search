@@ -21,6 +21,9 @@ export class QueryService {
   keywords: string = ""
 
   async generateResult() {
+    if (this.keywords.length === 0) {
+      return this.getResultCache().reverse()
+    }
     let prompt: string = this.generatePrompt();
     const result = await this.model.generateContent(prompt);
     const response = result.response;
@@ -30,14 +33,26 @@ export class QueryService {
       date: Date.now(),
       name: this.AI_INFO.gemini.name,
       response: text,
-      modifiers: this.searchParameters
+      modifiers: this.searchParameters,
+      status: "Current"
     }
-    if (this.dataArray.length >= 10) {
-      this.dataArray.shift()
+    let dataArray = this.getResultCache()
+    if (dataArray.length >= 10) {
+      dataArray.shift()
     }
     let finalData: any = JSON.parse(JSON.stringify(data))
-    this.dataArray.push(finalData)
-    return this.dataArray.reverse()
+    dataArray.push(finalData)
+    localStorage.setItem('data', JSON.stringify(dataArray))
+    return dataArray.reverse()
+  }
+
+  getResultCache() {
+    let dataArrayString = localStorage.getItem('data')
+    let dataArray = dataArrayString? JSON.parse(dataArrayString) : []
+    for (let i = 0; i < dataArray.length; i++) {
+      dataArray[i].status = "Cache"
+    }
+    return dataArray
   }
 
   getResultById(id: string): any {

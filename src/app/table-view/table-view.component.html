@@ -2,7 +2,7 @@
 
   <ng-container matColumnDef="status">
     <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
-    <mat-cell *matCellDef="let result; let i = index">{{checkResultStatus(i)}} ({{result.date | date:'mediumTime'}})</mat-cell>
+    <mat-cell *matCellDef="let result; let i = index">{{result.status}} ({{result.date | date:'mediumTime'}})</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="response">
